@@ -16,10 +16,10 @@ public class main {
     
     
     public static void main(String args[]){
-        int arr[] = { 64, 34, 25 };
+        int arr[] = { 23, 41, 34, 15, 9, 29 };
         int n = arr.length;
-        Ordenamientos.bubbleSort(arr, n);
-        System.out.println("Sorted array: ");
+        Ordenamientos.selectionSort(arr);
+        System.out.println("Lista Ordenada: ");
         printArray(arr, n);
     }
 }
