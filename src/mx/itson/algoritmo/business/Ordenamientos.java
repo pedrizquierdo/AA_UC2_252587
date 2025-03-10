@@ -11,50 +11,56 @@ package mx.itson.algoritmo.business;
 public class Ordenamientos {
     
     public static void bubbleSort(int arr[], int n) {
-    int i, j, temp;
+    int i, j, temp; // 3 asignaciones 
     boolean intercambio; // 1 asignación
 
-    for (i = 0; i < n - 1; i++) { // n - 1, n - 1
-        intercambio = false; // n - 1
+    for (i = 0; i < n - 1; i++) { // (n - 1) comparaciones, (n - 1) incrementos
+        intercambio = false; // (n - 1) asignaciones
         
         for (j = 0; j < n - i - 1; j++) { 
-            if (arr[j] > arr[j + 1]) { // (n - 1) + (n - 2) + ... + 1 = O(n^2)
+            if (arr[j] > arr[j + 1]) { // (n-1) + (n-2) + ... + 1 = n(n-1)/2 comparaciones
                 
                 // Intercambio de elementos
-                temp = arr[j]; // n^2
-                arr[j] = arr[j + 1]; // n^2
-                arr[j + 1] = temp; // n^2
-                intercambio = true; // 1
+                temp = arr[j]; // (n-1)(n-1)/2 asignaciones
+                arr[j] = arr[j + 1]; // (n-1)(n-1)/2 asignaciones
+                arr[j + 1] = temp; // (n-1)(n-1)/2 asignaciones
+                intercambio = true; // (n-1)(n-1)/2 asignaciones
             }
         }
         
-        if (intercambio == false) // n - 1
-            break; //
+        if (intercambio == false) // (n - 1) comparaciones
+            break; // (posible 1 vez, pero no siempre)
     }
 }
-
+    
+    
+// Expresión algebraica total: 4 + 4(n−1) + 5((n(n-1))/2) 
+ 
 // Complejidad temporal: O(n^2)
     
     
     
     public static void selectionSort(int arr[]) {
-       int i, j, temp;  
-       int n = arr.length;
-       for( i = 0; i < n - 1; i++){
-           int min = i;
-                   
-           for(j = i + 1; j < n; j++){
-                if (arr[j] < arr[min]) {
-                    min = j;    
-           }
-           }
-                temp = arr[i]; 
-                arr[i] = arr[min]; 
-                arr[min] = temp; 
-                
-       }
-    }
+       int i, j, temp;  // 3 asignaciones: i, j, temp → 3
+       int n = arr.length; // 1 asignación
 
+       for(i = 0; i < n - 1; i++) { // (n-1) asignaciones + (n-1) comparaciones + (n-1) incrementos
+           int min = i; // (n-1) asignaciones
+
+           for(j = i + 1; j < n; j++) { // (n(n-1)/2) asignaciones + (n(n-1)/2) comparaciones + (n(n-1)/2) incrementos
+                if (arr[j] < arr[min]) { // (n(n-1)/2) comparaciones
+                    min = j; // En el peor de los casos (n(n-1)/2) asignaciones
+                }
+           }
+           temp = arr[i]; // (n-1) asignaciones
+           arr[i] = arr[min]; // (n-1) asignaciones
+           arr[min] = temp; // (n-1) asignaciones
+       }
+}
+
+// Expresión algebraica total: 4 + 5(n−1) + ((3n(n - 1))/2)
+ 
+// Complejidad temporal: O(n^2)
     
     
     public static void printArray(int arr[], int size){
