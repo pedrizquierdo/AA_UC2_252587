@@ -44,7 +44,7 @@ public class Ordenamientos {
        int i, j, temp;  // 3 asignaciones: i, j, temp → 3
        int n = arr.length; // 1 asignación
 
-       for(i = 0; i < n - 1; i++) { // (n-1) asignaciones + (n-1) comparaciones + (n-1) incrementos
+       for(i = 0; i <= n - 2; i++) { // (n-1) asignaciones + (n-1) comparaciones + (n-1) incrementos
            int min = i; // (n-1) asignaciones
 
            for(j = i + 1; j < n; j++) { // (n(n-1)/2) asignaciones + (n(n-1)/2) comparaciones + (n(n-1)/2) incrementos
@@ -62,6 +62,20 @@ public class Ordenamientos {
  
 // Complejidad temporal: O(n^2)
     
+    
+    public static void insertionSort(int arr[]) {
+        int i, j, key;
+        for(i = 1; i < arr.length; i++){
+            key = arr[i];
+            j = i - 1;
+            
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j = j - 1;          
+            }
+        arr[j + 1] = key;    
+        }   
+    }
     
     public static void printArray(int arr[], int size){
         int i;

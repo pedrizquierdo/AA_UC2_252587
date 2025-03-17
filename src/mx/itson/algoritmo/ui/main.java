@@ -16,9 +16,9 @@ public class main {
     
     
     public static void main(String args[]){
-        int arr[] = { 23, 41, 34, 15, 9, 29 };
+        int arr[] = { 23, 41, 63, 34, 15, 9, 29, 3 };
         int n = arr.length;
-        Ordenamientos.selectionSort(arr);
+        Ordenamientos.insertionSort(arr);
         System.out.println("Lista Ordenada: ");
         printArray(arr, n);
     }
